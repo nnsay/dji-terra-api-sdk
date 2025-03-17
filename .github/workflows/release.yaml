@@ -49,6 +49,6 @@ jobs:
 
       - name: Publish github package
         run: |
-          yarn publish
+          yarn publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.DEVOPS_TOKEN }}
