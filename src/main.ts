@@ -702,9 +702,3 @@ export class TerraAPI {
     console.log(`[downloadFiles] all files download done`);
   }
 }
-
-const exec = async () => {
-  const terraAPI = new TerraAPI();
-  await terraAPI.listResources();
-};
-exec().catch((err) => console.error(err.result));
