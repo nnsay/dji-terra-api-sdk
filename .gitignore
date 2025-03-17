@@ -13,5 +13,6 @@ dist/
 .idea
 
 # Yarn
-dji-terra-api-sdk-v*.tgz
+*.tgz
 package
+
