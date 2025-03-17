@@ -43,7 +43,7 @@ jobs:
       - name: Create Release
         run: |
           tag=$(git tag --list --sort -version:refname | head -n 1)
-          gh release create $tag -F releaselog.md
+          gh release create $tag -F releaselog.md --latest
         env:
           GH_TOKEN: ${{ secrets.DEVOPS_TOKEN }}
 
