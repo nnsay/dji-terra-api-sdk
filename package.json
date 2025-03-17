@@ -1,0 +1,44 @@
+{
+  "name": "dji-terra-api-sdk",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "check": "biome check --write",
+    "format": "prettier --write .",
+    "lint": "eslint .",
+    "test": "ts-node test/full-step.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nnsay/dji-terra-api-sdk.git"
+  },
+  "keywords": [
+    "dji",
+    "terra api",
+    "大疆智图"
+  ],
+  "author": "Jimmy Wang",
+  "license": "MIT",
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@eslint/js": "^9.21.0",
+    "eslint": "^9.21.0",
+    "globals": "^16.0.0",
+    "prettier": "^3.5.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.24.1"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.758.0",
+    "@types/node": "^22.13.10",
+    "axios": "^1.8.3",
+    "axios-retry": "^4.5.0",
+    "dayjs": "^1.11.13"
+  }
+}
