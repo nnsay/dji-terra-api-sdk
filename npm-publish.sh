@@ -1,6 +1,8 @@
 #! /bin/bash
 
 # 1. package
+rm -rf dist
+yarn build
 yarn pack
 
 # 2. build
