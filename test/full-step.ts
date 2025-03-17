@@ -3,7 +3,11 @@ import { TerraAPI } from '../src/main';
 import { StartJob3DParamater, CreateJobAPIResponse } from '../src/dto';
 
 const exec = async () => {
+  // AK/SK come from env prameter
   const terraAPI = new TerraAPI();
+  // or AK/SK hardcode
+  // const terraAPI = new TerraAPI(appKey, secretKey, 'https://openapi-cn.dji.com');
+
   // TODO: change the dir to you drone image dir
   const imageDir = `${os.homedir()}/Downloads/tmp/test/images`;
   const apiOutputDir = `${os.homedir()}/Downloads/tmp/test/terra-api-result`;
