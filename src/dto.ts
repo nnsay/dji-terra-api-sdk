@@ -371,9 +371,10 @@ export interface UploadCallbackAPIResponse {
 }
 export interface CreateJobAPIResponse {
   /**
-   * The time format is RFC3339. For example, 2006-01-02T15:04:05Z07:00. This field is not mandatory to be returned. For example, if the job has not been initiated, this field will not be returned
+   * The time format is RFC3339. For example, 2006-01-02T15:04:05Z07:00. This field is not mandatory to be returned.
+   * For example, if the job has not been initiated, this field will not be returned
    */
-  completedAt: string;
+  completedAt?: string;
   /**
    * The time format is RFC3339. For example, 2006-01-02T15:04:05Z07:00
    */
@@ -382,7 +383,7 @@ export interface CreateJobAPIResponse {
    * Status information. This field is not mandatory to be returned.
    * For example, if the job has not been initiated, this field will not be returned
    */
-  message: string;
+  message?: string;
   /**
    * User extension information
    */
@@ -395,37 +396,37 @@ export interface CreateJobAPIResponse {
    * Origin resource uuid. This field is not mandatory to be returned.
    * For example, if the job has not been initiated, this field will not be returned.
    */
-  originResourceUuid: string;
+  originResourceUuid?: string;
   /**
    * Uuid of resource that stores the reconstruction result. This field is not mandatory to be returned.
    * For example, if the job has not been initiated, this field will not be returned.
    *
    */
-  outputResourceUuid: string;
+  outputResourceUuid?: string;
   /**
    * This field is not mandatory to be returned. For example, if the job has not been initiated, this field will not be returned.
    */
-  parameters: string;
+  parameters?: string;
   /**
    * Progress. From 0 to 1. float64. This field is not mandatory to be returned.
    * For example, if the job has not been initiated, this field will not be returned.
    */
-  percentage: number;
+  percentage?: number;
   /**
    * Total pixels. float64. This field is not mandatory to be returned.
    * For example, if the job has not been initiated, this field will not be returned.
    */
-  pixels: number;
+  pixels?: number;
   /**
    * Remaining time. Unit is second. int. This field is not mandatory to be returned.
    * For example, if the job has not been initiated, this field will not be returned.
    */
-  remainSeconds: number;
+  remainSeconds?: number;
   /**
    * The time format is RFC3339. For example, 2006-01-02T15:04:05Z07:00. This field is not mandatory to be returned.
    * For example, if the job has not been initiated, this field will not be returned.
    */
-  startedAt: string;
+  startedAt?: string;
   /**
    * Job status
    * - 0 - waiting for start
@@ -662,7 +663,7 @@ export interface ListJobAPIResponse {
      * The time format is RFC3339. For example, 2006-01-02T15:04:05Z07:00.
      * This field is not mandatory to be returned. For example, if the job has not been initiated, this field will not be returned.
      */
-    completedAt: string;
+    completedAt?: string;
     /**
      * The time format is RFC3339. For example, 2006-01-02T15:04:05Z07:00
      */
@@ -679,17 +680,17 @@ export interface ListJobAPIResponse {
      * Origin resource uuid. This field is not mandatory to be returned.
      * For example, if the job has not been initiated, this field will not be returned.
      */
-    originResourceUuid: string;
+    originResourceUuid?: string;
     /**
      * Uuid of resource that stores the reconstruction result.
      * This field is not mandatory to be returned. For example, if the job has not been initiated, this field will not be returned.
      */
-    outputResourceUuid: string;
+    outputResourceUuid?: string;
     /**
      * The time format is RFC3339. For example, 2006-01-02T15:04:05Z07:00.
      * This field is not mandatory to be returned. For example, if the job has not been initiated, this field will not be returned.
      */
-    startedAt: string;
+    startedAt?: string;
     /**
      * Job status. 0 - waiting for start. 1 - waiting. 2 - preparing. 3 - executing. 4 - result processing. 5 - stopped. 6 - execution finished. 7 - execution fail. uint
      */
