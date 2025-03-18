@@ -311,7 +311,6 @@ export class TerraAPI {
       reqUrl,
       payload,
     );
-    // const { 'Content-Type': contentType, ...otherHeaders } = headers
     const res = await this.reqClient.request<
       string,
       AxiosResponse<TerraAPIResponse>
@@ -440,6 +439,7 @@ export class TerraAPI {
     console.log(`[createJob] ${JSON.stringify(job)}`);
     return job;
   }
+
   /**
    * Get job details
    * @param uuid string, job ID
@@ -469,6 +469,38 @@ export class TerraAPI {
     const job = data.data;
     console.log(`[getJob] ${JSON.stringify(job)}`);
     return job;
+  }
+
+  /**
+   * Delete job
+   * @param uuid string, job uuid
+   * @param deleteMode delete mode. 0 - do not delete. 1 - delete files that are not linked to other resource. uint
+   * @returns execute result
+   */
+  async deleteJob(uuid: string) {
+    const payload = '';
+    const reqUrl = `${this.apiHost}/terra-rescon-be/v2/jobs/${uuid}`;
+    const method = 'DELETE'.toLowerCase();
+    const { headers, payloadStr } = this.buildRequestParam(
+      method,
+      reqUrl,
+      payload,
+    );
+    const res = await this.reqClient.request<
+      string,
+      AxiosResponse<TerraAPIResponse>
+    >({
+      url: reqUrl,
+      method: method,
+      headers,
+      data: payloadStr,
+    });
+
+    if (res.data.result.code !== 0) {
+      throw new Error(res.data.result.msg);
+    }
+    console.log(`[deleteJob] ${JSON.stringify(res.data.result)}`);
+    return res.data.result;
   }
 
   /**
@@ -507,6 +539,7 @@ export class TerraAPI {
     console.log(`[startJob] ${JSON.stringify(result)}`);
     return result;
   }
+
   /**
    * Get file list
    * @param query json, query Paramater
@@ -614,6 +647,7 @@ export class TerraAPI {
     console.log(`[listFiles] ${JSON.stringify(data.data)}`);
     return data.data;
   }
+
   /**
    * Get file information
    * @param uuid, string, file id
