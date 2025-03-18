@@ -436,7 +436,7 @@ export class TerraAPI {
       throw new Error(data.result.msg);
     }
     const job = data.data;
-    console.log(`[createResource] ${JSON.stringify(job)}`);
+    console.log(`[createJob] ${JSON.stringify(job)}`);
     return job;
   }
   /**
