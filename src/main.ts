@@ -21,6 +21,7 @@ import {
   StartJobAPIRequest,
   ListFilesAPIResponse,
   GetFileAPIResponse,
+  ListJobAPIResponse,
 } from './dto';
 
 dayjs.extend(utc);
@@ -544,7 +545,7 @@ export class TerraAPI {
     );
     const { data } = await this.reqClient.request<
       string,
-      AxiosResponse<TerraAPIResponse<CreateJobAPIResponse>>
+      AxiosResponse<TerraAPIResponse<ListJobAPIResponse>>
     >({
       url: reqUrl,
       method: method,
