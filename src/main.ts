@@ -535,7 +535,7 @@ export class TerraAPI {
     });
     const payload = '';
     const reqUrl =
-      `${this.apiHost}/terra-rescon-be/v2/files?=` + urlParams.toString();
+      `${this.apiHost}/terra-rescon-be/v2/jobs?=` + urlParams.toString();
     const method = 'GET'.toLowerCase();
     const { headers, payloadStr } = this.buildRequestParam(
       method,
