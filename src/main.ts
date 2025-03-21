@@ -8,7 +8,6 @@ import axios, { AxiosResponse } from 'axios';
 import axiosRetry from 'axios-retry';
 import fs from 'fs/promises';
 import path from 'path';
-import { createReadStream } from 'fs';
 import { PutObjectCommand, S3Client, S3ClientConfig } from '@aws-sdk/client-s3';
 import {
   TerraAPIResponse,
@@ -223,8 +222,6 @@ export class TerraAPI {
     };
     if (this.apiHost.includes('-cn')) {
       s3Config.endpoint = `https://${stsToken.region}.aliyuncs.com`;
-      // @ts-expect-error: skip the readonly checking
-      s3Config.apiVersion = '2006-03-01';
     }
     const ossClient = new S3Client(s3Config);
     const uploadedFiles: { name: string; etag: string; checksum: string }[] =
@@ -239,11 +236,14 @@ export class TerraAPI {
 
       const batchUpload = currentBatchFiles.map(async (file) => {
         const key = stsToken.storePath.replace('{fileName}', file);
+        const iamgeFile = path.resolve(`${imageDir}/${file}`);
         const { ETag } = await ossClient.send(
           new PutObjectCommand({
             Bucket: stsToken.cloudBucketName,
             Key: key,
-            Body: createReadStream(path.resolve(`${imageDir}/${file}`)),
+            // WARN: aliyun oss error: aws-chunked encoding is not supported with the specified x-amz-content-sha256 value
+            // HINT: upload with buffer but not stream for resolve the above aliyun oss error
+            Body: await fs.readFile(iamgeFile),
           }),
         );
         console.log(`[uploadFile] ${key} ${ETag}`);
