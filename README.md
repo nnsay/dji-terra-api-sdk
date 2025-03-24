@@ -2,7 +2,7 @@
 
 ## 介绍
 
-**Terra API SDK** 是一个用于封装 **大疆智图 API** 的 Node.js SDK，提供了简单易用的接口，帮助开发者免去繁琐的 API 调用签名过程，直接通过 SDK 发送请求。
+**Terra API SDK** 是一个用于封装 **[大疆智图 API](https://developer.dji.com/doc/terra_api_tutorial/cn/)** 的 Node.js SDK，提供了简单易用的接口，帮助开发者免去繁琐的 API 调用签名过程，直接通过 SDK 发送请求。
 
 此外，该 SDK 还提供了 **TypeScript 类型声明文件**，使 TypeScript 开发者可以通过类型检查确保请求参数和返回值的正确性，从而提高开发效率并减少错误。
 
