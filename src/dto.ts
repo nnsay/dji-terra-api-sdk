@@ -74,7 +74,7 @@ export interface CreateResourceAPIResponse {
   /**
    * Whether is modifiable
    */
-  revisable: true;
+  revisable: boolean;
   scope: {
     /**
      * Maximum latitude. float64
@@ -202,7 +202,7 @@ export interface ListResourcesAPIResponse {
     /**
      * Whether is modifiable
      */
-    revisable: true;
+    revisable: boolean;
     scope: {
       /**
        * Maximum latitude. float64
@@ -228,7 +228,7 @@ export interface ListResourcesAPIResponse {
     /**
      * Resource type
      */
-    type: 'map';
+    type: 'map' | 'job_output';
     /**
      * The time format is RFC3339. For example, 2006-01-02T15:04:05Z07:00
      */
@@ -272,7 +272,7 @@ export interface GetResourceAPIResponse {
     /**
      * Resource type
      */
-    type: 'map';
+    type: 'map' | 'job_output';
     /**
      * User extension information
      */
